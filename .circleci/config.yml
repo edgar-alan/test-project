@@ -1,16 +1,14 @@
-# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-# Use a package of configuration called an orb.
-orbs:
-  salesforce-sfdx: circleci/salesforce-sfdx@2.1.1
-# Orchestrate or schedule a set of jobs
-jobs:
-  install_authenticate:
-    executor: sfdx/default
-    steps:
-      - checkout
-      - sfdx/install
-      - sfdx/auth:
-          defaultusername: edgar.drummer1993@curious-goat-447951.com
-      - run:
-          command: sfdx --help
+  orbs:
+    apex: circleci/salesforce-apex@x.y
+  jobs:
+    install_authenticate:
+      docker:
+        - image: cimg/node:14.5
+      steps:
+        - checkout
+        - apex/setup:
+           defaultusername: edgar.drummer1993@curious-goat-447951.com
+        - run:
+            name: Run your SFDX commands here
+            command: sfdx --help
