@@ -36,3 +36,7 @@ Thumbs.db
 ehthumbs.db
 [Dd]esktop.ini
 $RECYCLE.BIN/
+
+#other
+.prettierignore
+.prettierrc
