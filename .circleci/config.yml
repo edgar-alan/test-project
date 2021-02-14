@@ -6,10 +6,11 @@ jobs:
     executor: sfdx/default
     steps:
       - sfdx/install
+      - sfdx/auth:
+          defaultusername: edgar.drummer1993@curious-goat-447951.com
       - run:
           name: Check Auth List
-          command: |
-            sfdx auth:jwt:grant -u edgar.drummer1993@curious-goat-447951.com -f $SFDX_JWT_KEY -i $SFDX_CONSUMER_KEY
+          command: 
             sfdx force:org:list
 workflows:
   workflow: 
