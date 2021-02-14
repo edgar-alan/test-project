@@ -12,7 +12,15 @@ jobs:
           name: Check Auth List
           command: 
             sfdx force:org:list
+  deploy:
+    executor: sfdx/default
+    steps:
+      - run:
+          name: Deploying code
+          command: |
+              sfdx force:source:push
 workflows:
   workflow: 
     jobs:
       - authenticate
+      - deploy
