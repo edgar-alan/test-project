@@ -23,4 +23,6 @@ workflows:
   workflow: 
     jobs:
       - authenticate
-      - deploy
+      - deploy:
+          requires:
+              - authenticate
