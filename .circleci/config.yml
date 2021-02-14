@@ -17,15 +17,14 @@ jobs:
     steps:
       - checkout
       - sfdx/install
+      - sfdx/auth:
+          defaultusername: edgar.drummer1993@curious-goat-447951.com
       - run:
           name: Deploying code
           command: |
               ls -al
-              sfdx force:source:push -u test-project-master
+              sfdx force:source:push 
 workflows:
   workflow: 
     jobs:
-      - authenticate
-      - deploy:
-          requires:
-              - authenticate
+      - deploy
