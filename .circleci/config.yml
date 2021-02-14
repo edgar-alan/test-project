@@ -2,17 +2,14 @@ version: 2.1
 orbs:
   sfdx: circleci/salesforce-sfdx@2.1.1
 jobs:
-  integration-install_authenticate:
+  authenticate:
     executor: sfdx/default
-    working_directory: ~/project
     steps:
       - sfdx/install
-      - sfdx/auth:
-          defaultusername: edgar.drummer1993@curious-goat-447951.com
       - run:
           name: Check Auth List
-          command: sfdx auth:list
+          command: sfdx auth -h
 workflows:
   workflow: 
     jobs:
-      - integration-install_authenticate
+      - authenticate
