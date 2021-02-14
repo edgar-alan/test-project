@@ -8,7 +8,9 @@ jobs:
       - sfdx/install
       - run:
           name: Check Auth List
-          command: sfdx auth -h
+          command: |
+            sfdx auth:jwt:grant -u edgar.drummer1993@curious-goat-447951.com -f $SFDX_JWT_KWY -i $SFDX_CONSUMER_KEY
+            sfdx force:org:list
 workflows:
   workflow: 
     jobs:
