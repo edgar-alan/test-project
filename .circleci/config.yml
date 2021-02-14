@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Deploying code
           command: |
-              sfdx force:source:push
+              ls -al
 workflows:
   workflow: 
     jobs:
