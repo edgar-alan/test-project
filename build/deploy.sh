@@ -9,9 +9,10 @@ LIST_FILES=$(git diff-tree --no-commit-id --name-only -r $COMMIT_SHA)
 FILES=$(echo "$LIST_FILES" | awk -v x="\"" '/^force/ { print x$1x}'  | paste -d","  -s)
 echo "$FILES"
 
+
 TEST_FILES=$(echo "$LIST_FILES" | awk -v x="\"" '/Test.cls$/ { print $1}'  | paste -d","  -s)
 
-TEST_FILES=$(echo $TEST_FILES | sed 's/force-app\/main\/default\/classes\///' | sed 's/Test.cls/Test/')
+TEST_FILES=$(echo $TEST_FILES | sed 's/force-app\/main\/default\/classes\///g' | sed 's/Test.cls/Test/g')
 echo " ++++++++ TEST FILES +++++++++"
 echo $TEST_FILES
 
