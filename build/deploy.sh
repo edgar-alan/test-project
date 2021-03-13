@@ -19,7 +19,13 @@ echo $TEST_FILES
 
 if [ -z "$FILES" ]
 then
-      echo "No files to deploy"
+      echo "There is no components to deploy"
 else
-      sfdx force:source:deploy -p $FILES -l RunSpecifiedTests -u "$ENV_TARGET"  -r "$TEST_FILES"
+      if [ -z "$TEST_FILES"] 
+      then 
+            sfdx force:source:deploy -p $FILES  -u "$ENV_TARGET"  
+      else 
+            sfdx force:source:deploy -p $FILES -l RunSpecifiedTests -u "$ENV_TARGET"  -r "$TEST_FILES"
+      fi
 fi
+
