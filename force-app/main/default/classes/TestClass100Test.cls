@@ -1,8 +1,11 @@
 @isTest
 public with sharing class TestClass100Test {
     @isTest
-    public static void testMethod() {
-        TestClass100 test = new TestClass100();
-        //test  
+    static void methodName(){
+        
+        Test.startTest();
+        TestClass100 x = new TestClass100();
+        Test.stopTest();
+        
     }
 }
