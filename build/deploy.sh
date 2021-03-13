@@ -10,10 +10,9 @@ FILES=$(echo "$LIST_FILES" | awk -v x="\"" '/^force/ { print x$1x}'  | paste -d"
 echo "$FILES"
 
 TEST_FILES=$(echo "$LIST_FILES" | awk -v x="\"" '/Test.cls$/ { print $1}'  | paste -d","  -s)
-echo " ++++++++++"
-echo $TEST_FILES
+
 TEST_FILES=$(echo $TEST_FILES | sed 's/force-app\/main\/default\/classes\///' | sed 's/Test.cls/Test/')
-echo " ++++++++"
+echo " ++++++++ TEST FILES +++++++++"
 echo $TEST_FILES
 
 
