@@ -21,9 +21,7 @@ jobs:
           defaultusername: edgar.drummer1993@curious-goat-447951.com
       - run:
           name: Deploying code
-          command: |
-              ls -al
-              bash ./build/deploy.sh edgar.drummer1993@curious-goat-447951.com
+          command: bash ./build/deploy.sh edgar.drummer1993@curious-goat-447951.com
 workflows:
   workflow: 
     jobs:
