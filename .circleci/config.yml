@@ -1,0 +1,28 @@
+version: 2.1
+orbs:
+  sfdx: circleci/salesforce-sfdx@2.1.1
+jobs:
+  authenticate:
+    executor: sfdx/default
+    steps:
+      - sfdx/install
+      - sfdx/auth:
+          defaultusername: edgar.drummer1993@curious-goat-447951.com
+      - run:
+          name: Check Auth List
+          command: 
+            sfdx force:org:list
+  deploy:
+    executor: sfdx/default
+    steps:
+      - checkout
+      - sfdx/install
+      - sfdx/auth:
+          defaultusername: edgar.drummer1993@curious-goat-447951.com
+      - run:
+          name: Deploying code
+          command: bash ./build/deploy.sh edgar.drummer1993@curious-goat-447951.com
+workflows:
+  workflow: 
+    jobs:
+      - deploy
