@@ -20,5 +20,5 @@ if [ -z "$FILES" ]
 then
       echo "No files to deploy"
 else
-      sfdx force:source:deploy -p $FILES -l RunLocalTests -u "$ENV_TARGET" 
+      sfdx force:source:deploy -p $FILES -l RunSpecifiedTests -u "$ENV_TARGET"  -r "$TEST_FILES"
 fi
