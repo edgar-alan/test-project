@@ -23,7 +23,7 @@ jobs:
           name: Deploying code
           command: |
               ls -al
-              sfdx force:source:push -u edgar.drummer1993@curious-goat-447951.com
+              bash ./build/deploy.sh
 workflows:
   workflow: 
     jobs:
