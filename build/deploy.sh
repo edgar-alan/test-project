@@ -2,6 +2,7 @@
 
 echo "STARTING DEPLOYMENT"
 ENV_TARGET=$1
+
 git checkout
 COMMIT_SHA=$(git rev-parse --short HEAD)
 LIST_FILES=$(git diff-tree --no-commit-id --name-only -r $COMMIT_SHA)
