@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "STARTING DEPLOYMENT"
 ENV_TARGET=$1
 git checkout
