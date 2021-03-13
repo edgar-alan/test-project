@@ -1,7 +1,7 @@
 @isTest
 public with sharing class TestClass100Test {
     @isTest
-    public TestClass100Test() {
+    public static void testMethod() {
         TestClass100 test = new TestClass100();
     }
 }
